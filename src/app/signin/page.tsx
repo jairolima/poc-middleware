@@ -13,7 +13,7 @@ export default function SignIn() {
         username: "mor_2314",
         password: "83r5^_"
       });
-      document.cookie = "cookieName=JwtToken; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+      document.cookie = "JwtToken=auPukDFskaSFzuAFasdas; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
       router.push('/dashboard/admin')
     } catch (e) {
       const error = e as AxiosError;
@@ -25,7 +25,7 @@ export default function SignIn() {
     <>
       <div className="max-w-md mx-auto mt-8">
 
-        <button onClick={handleClick}>Signin</button>
+        <button onClick={handleClick}>ENTRAR</button>
       </div>
     </>
   );
