@@ -1,8 +1,9 @@
 import { redirect } from "next/navigation";
-import { session } from "../session";
+import { cookies } from "next/headers";
 
 export default async function PrivateLayout({ children }: { children: React.ReactNode }) {
-
+  const session = cookies().get('TokenJwt')
+  
   if (session) {
     redirect('/dashboard/admin')
   }
