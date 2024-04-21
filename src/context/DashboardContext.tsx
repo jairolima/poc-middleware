@@ -1,31 +1,24 @@
 'use client';
 
+import axios, { AxiosError } from "axios";
 import { useEffect, createContext, useState, ReactNode } from "react";
-
-type UserT = {
-  name: string;
-  surname: string;
-};
-
-type DashboardContextType = {
-  user: UserT | undefined;
-  setUser: any;
-};
 
 type Props = {
   children: ReactNode;
 };
 
-export const DashboardContext = createContext({} as DashboardContextType);
+export const DashboardContext = createContext({} as any);
 
 export function DashboardProvider({ children }: Props) {
-  const [user, setUser] = useState<UserT>();
+  const [user, setUser] = useState<any>();
 
   const fetchUser = async () => {
     try {
-      setUser({name: 'teste', surname: 'teste'})
+      const response = await axios.get("https://fakestoreapi.com/users/1");
+      setUser(response.data)
     } catch (e) {
-      console.error('error');
+      const error = e as AxiosError;
+      console.error(error)
     }
   }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { DashboardProvider } from "../../context/DashboradContext";
+import { DashboardProvider } from "@/context/DashboardContext";
 
 export default function DashboardLayout({
   children,
